@@ -5,10 +5,7 @@ import Logica.Logica;
 
 public class Main {
     public static void main(String[] args) {
-
         Logica x = new Logica();
-        x.Llenado();
-        x.Mostrar();
-
+        x.inicioPrueba();
     }
 }
