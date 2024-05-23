@@ -1,14 +1,15 @@
 
 package Logica;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Creat {
       // Ruta relativa al archivo
-    private   String Archivo = "archivo.txt";
+    private String Archivo = "archivo.txt";
     
-    public   void escribir(String a, String b, String c){
+    public void escribir(String a, String b, String c){
             // Contenido a escribir
             String contenido = a+";"+b+";"+c;
             
@@ -22,9 +23,14 @@ public class Creat {
                 System.err.println("Error al escribir en el archivo: " + e.getMessage());
             }
         }
-    }
     
 
+    public void delete(){
+        File archivo = new File(Archivo);
+        archivo.delete();
+    }
+    
+}
 
 
 

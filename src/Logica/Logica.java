@@ -41,9 +41,10 @@ public class Logica {
     }
 
     public void inicioPrueba() {
-
+        Creat x = new Creat();
         int[] vectIndice = { 100, 1000, 10000 };
         Long[] vectTiempo = new Long[4];
+        x.delete();
         auxBurbuja(vectIndice,vectTiempo);
         auxseleccion(vectIndice, vectTiempo);
         auxQuitSort(vectIndice, vectTiempo);
@@ -92,6 +93,7 @@ public class Logica {
 
     }
 
+    @SuppressWarnings("unchecked")
     private void auxQuitSort(int[] vectIndice, Long[] vectTiempo){
         Creat creat = new Creat();
         for (int i = 0; i < 4; i++) {
@@ -113,6 +115,7 @@ public class Logica {
 
     }
 
+    @SuppressWarnings("unchecked")
     private void auxzMergeSort(int[] vectIndice, Long[] vectTiempo){
         Creat creat = new Creat();
         for (int i = 0; i < 4; i++) {
