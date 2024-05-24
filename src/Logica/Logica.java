@@ -35,36 +35,6 @@ public class Logica {
         int op = 0;
         x.delete();
         auxOrdenamiento(vectIndice, vectTiempo);
-       // ordenamientoArrayVect(vectIndice, vectTiempo);
-        // do {
-        // op = Integer.parseInt(JOptionPane.showInputDialog(null, "---Menu para ver
-        // Arrays---\n"
-        // + "1.Array Burbuja.\n"
-        // + "2.Array Seleccion.\n"
-        // + "3.Array QuickSort.\n"
-        // + "4.Array MergeSort.\n"
-        // + "0.Salir.\n"));
-        // switch (op) {
-        // case 1:
-        // Mostrar(burbuja);
-        // break;
-        // case 2:
-        // Mostrar(seleccion);
-        // break;
-        // case 3:
-        // Mostrar(quitsort);
-        // break;
-        // case 4:
-        // Mostrar(mergesort);
-        // break;
-        // case 0:
-        // JOptionPane.showInternalMessageDialog(null, "Chao...");
-        // break;
-        // default:
-        // break;
-        // }
-
-        // } while (op != 0);
     }
 
     // ingresa por paramtro el tipo de ordenamiento y dos vectores para manejar
@@ -144,32 +114,6 @@ public class Logica {
             }
         }
     }
-
-    private void ordenamientoArrayVect(int[] vectIndice, Long[] vectTiempo) {
-        Creat creat = new Creat();
-        long endTime = 0;
-        long startTime = 0;
-        for (int j = 0; j < 3; j++) {
-
-            for (int i = 0; i < 3; i++) {
-                Vseleccion = Utilidad.llenado(vectIndice[j]);
-                startTime = System.nanoTime(); // Tiempo de inicio
-                seleccion();// Llamada a la función
-                endTime = System.nanoTime(); // Tiempo de finalización
-                // Calcular el tiempo transcurrido en nanosegundos
-                vectTiempo[i] = endTime - startTime;
-                // Guardar los datos en archivo plano.
-                creat.escribir("Vector Seleccion ", "" + i, vectIndice[j], vectTiempo[i].toString());
-
-            }
-            long prom = (vectTiempo[0] + vectTiempo[1] + vectTiempo[2]) / 3;
-            vectTiempo[3] = prom;
-            creat.escribir("Vector Seleccion ", "" + 3, vectIndice[j], vectTiempo[3].toString());
-
-        }
-
-    }
-
     private void seleccion() {
         int n = Vseleccion.length;
         for (int i = 0; i < n - 1; i++) {
