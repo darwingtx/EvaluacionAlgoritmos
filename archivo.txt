@@ -1,16 +1,60 @@
-1;0;2254700
-1;1;28177400
-1;2;387428600
-1;3;139286900
-1;0;7600
-1;1;2200
-1;2;2800
-1;3;4200
-1;0;9900
-1;1;3700
-1;2;3400
-1;3;5666
-1;0;5000
-1;1;2300
-1;2;4500
-1;3;3933
+Burbuja;0;100;3129500
+Burbuja;1;100;1384000
+Burbuja;2;100;1468800
+Burbuja;Promedio;100;1994100
+Burbuja;0;1000;27969200
+Burbuja;1;1000;17072800
+Burbuja;2;1000;5723300
+Burbuja;Promedio;1000;16921766
+Burbuja;0;10000;770178300
+Burbuja;1;10000;619554900
+Burbuja;2;10000;615137300
+Burbuja;Promedio;10000;668290166
+Seleccion;0;100;739100
+Seleccion;1;100;729500
+Seleccion;2;100;764200
+Seleccion;Promedio;100;744266
+Seleccion;0;1000;33760800
+Seleccion;1;1000;30487000
+Seleccion;2;1000;1594300
+Seleccion;Promedio;1000;21947366
+Seleccion;0;10000;211391700
+Seleccion;1;10000;398843000
+Seleccion;2;10000;189658500
+Seleccion;Promedio;10000;266631066
+Quitsort;0;100;106700
+Quitsort;1;100;172900
+Quitsort;2;100;130700
+Quitsort;Promedio;100;136766
+Quitsort;0;1000;1398200
+Quitsort;1;1000;18915700
+Quitsort;2;1000;459800
+Quitsort;Promedio;1000;6924566
+Quitsort;0;10000;5950200
+Quitsort;1;10000;2369200
+Quitsort;2;10000;2715700
+Quitsort;Promedio;10000;3678366
+Mergesort;0;100;1788200
+Mergesort;1;100;7064900
+Mergesort;2;100;4005600
+Mergesort;Promedio;100;4286233
+Mergesort;0;1000;1996900
+Mergesort;1;1000;1475900
+Mergesort;2;1000;2040500
+Mergesort;Promedio;1000;1837766
+Mergesort;0;10000;9528500
+Mergesort;1;10000;3645200
+Mergesort;2;10000;3851600
+Mergesort;Promedio;10000;5675100
+Vector Seleccion ;0;100;405000
+Vector Seleccion ;1;100;427000
+Vector Seleccion ;2;100;434600
+Vector Seleccion ;Promedio;100;422200
+Vector Seleccion ;0;1000;16965900
+Vector Seleccion ;1;1000;1964200
+Vector Seleccion ;2;1000;979200
+Vector Seleccion ;Promedio;1000;6636433
+Vector Seleccion ;0;10000;147371800
+Vector Seleccion ;1;10000;121262700
+Vector Seleccion ;2;10000;123598000
+Vector Seleccion ;Promedio;10000;130744166

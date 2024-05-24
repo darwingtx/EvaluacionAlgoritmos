@@ -19,6 +19,16 @@ public class Utilidad {
         return x;
     }
 
+    public static Integer[] llenado(int max){
+        Integer[] x = new Integer[max];
+
+        for (int i = 0; i < max; i++) {
+            x[i]=(int) (Math.random()*max)+1;
+        }
+
+        return x;
+    }
+    
     public static void Listar(String s, String titulo){
         int p = 500, t = 300;
         JTextArea textArea = new JTextArea(s);

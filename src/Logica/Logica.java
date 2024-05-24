@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import Utilidades.Utilidad;
 
 public class Logica {
@@ -12,21 +14,7 @@ public class Logica {
     private ArrayList<Integer> seleccion = new ArrayList<>();
     private ArrayList<Integer> quitsort = new ArrayList<>();
     private ArrayList<Integer> mergesort = new ArrayList<>();
-
-    @SuppressWarnings("unchecked")
-    // Resive la lista a llenar y el tamaño de datos por parametro
-    public void Llenado(ArrayList<Integer> lista, int tamaño) {
-        long startTime = System.nanoTime(); // Tiempo de inicio
-        lista = Utilidad.Llenado(tamaño); // Llamada a la función
-        long endTime = System.nanoTime(); // Tiempo de finalización
-
-        // Calcular el tiempo transcurrido en nanosegundos
-        long duration = endTime - startTime;
-        double durationInSeconds = duration / 1_000_000_000.0;
-
-        System.out.println("Tiempo de ejecución: " + durationInSeconds + " segundos");
-        System.out.println("Tiempo de ejecución: " + duration + " nanosegundos");
-    }
+    private Integer[] Vseleccion;
 
     // Resive la lista a mostrar por parametro
     public void Mostrar(ArrayList<Integer> lista) {
@@ -44,99 +32,159 @@ public class Logica {
         Creat x = new Creat();
         int[] vectIndice = { 100, 1000, 10000 };
         Long[] vectTiempo = new Long[4];
+        int op = 0;
         x.delete();
-        auxBurbuja(vectIndice,vectTiempo);
-        auxseleccion(vectIndice, vectTiempo);
-        auxQuitSort(vectIndice, vectTiempo);
-        auxzMergeSort(vectIndice, vectTiempo);
+        auxOrdenamiento(vectIndice, vectTiempo);
+       // ordenamientoArrayVect(vectIndice, vectTiempo);
+        // do {
+        // op = Integer.parseInt(JOptionPane.showInputDialog(null, "---Menu para ver
+        // Arrays---\n"
+        // + "1.Array Burbuja.\n"
+        // + "2.Array Seleccion.\n"
+        // + "3.Array QuickSort.\n"
+        // + "4.Array MergeSort.\n"
+        // + "0.Salir.\n"));
+        // switch (op) {
+        // case 1:
+        // Mostrar(burbuja);
+        // break;
+        // case 2:
+        // Mostrar(seleccion);
+        // break;
+        // case 3:
+        // Mostrar(quitsort);
+        // break;
+        // case 4:
+        // Mostrar(mergesort);
+        // break;
+        // case 0:
+        // JOptionPane.showInternalMessageDialog(null, "Chao...");
+        // break;
+        // default:
+        // break;
+        // }
+
+        // } while (op != 0);
     }
 
-    private void auxBurbuja(int[] vectIndice, Long[] vectTiempo){
+    // ingresa por paramtro el tipo de ordenamiento y dos vectores para manejar
+    // tamaño y tiempos
+    private void auxOrdenamiento(int[] vectIndice, Long[] vectTiempo) {
         Creat creat = new Creat();
-        for (int i = 0; i < 4; i++) {
-            if (i < 3) {
-                burbuja = Utilidad.Llenado(vectIndice[i]); 
-                long startTime = System.nanoTime(); // Tiempo de inicio
-                burbuja(burbuja);// Llamada a la función
-                long endTime = System.nanoTime(); // Tiempo de finalización
-                // Calcular el tiempo transcurrido en nanosegundos
-               vectTiempo[i] = endTime - startTime;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
-            } else {
-            long prom = (vectTiempo[0]+vectTiempo[1]+vectTiempo[2])/3;
-                vectTiempo[i]=prom ;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
+        long endTime = 0;
+        long startTime = 0;
+        String[] ord = { "Burbuja", "Seleccion", "Quitsort", "Mergesort","Vector Seleccion " };
+        for (int k = 0; k < 5; k++) {
+
+            for (int j = 0; j < 3; j++) {
+
+                for (int i = 0; i < 3; i++) {
+                    ArrayList lista = Utilidad.Llenado(vectIndice[j]);
+                    switch (k) {
+                        case 0:
+                            burbuja = lista;
+                            startTime = System.nanoTime(); // Tiempo de inicio
+                            burbuja(burbuja);// Llamada a la función
+                            endTime = System.nanoTime(); // Tiempo de finalización
+                            // Calcular el tiempo transcurrido en nanosegundos
+                            vectTiempo[i] = endTime - startTime;
+                            // Guardar los datos en archivo plano.
+                            creat.escribir(ord[k], "" + i, vectIndice[j], vectTiempo[i].toString());
+                            break;
+
+                        case 1:
+                            seleccion = lista;
+                            startTime = System.nanoTime(); // Tiempo de inicio
+                            seleccion(seleccion);// Llamada a la función
+                            endTime = System.nanoTime(); // Tiempo de finalización
+                            // Calcular el tiempo transcurrido en nanosegundos
+                            vectTiempo[i] = endTime - startTime;
+                            // Guardar los datos en archivo plano.
+                            creat.escribir(ord[k], "" + i, vectIndice[j], vectTiempo[i].toString());
+                            break;
+                        case 2:
+                            quitsort = lista;
+                            startTime = System.nanoTime(); // Tiempo de inicio
+                            sort(quitsort);// Llamada a la función
+                            endTime = System.nanoTime(); // Tiempo de finalización
+                            // Calcular el tiempo transcurrido en nanosegundos
+                            vectTiempo[i] = endTime - startTime;
+                            // Guardar los datos en archivo plano.
+                            creat.escribir(ord[k], "" + i, vectIndice[j], vectTiempo[i].toString());
+                            break;
+                        case 3:
+                            mergesort = lista;
+                            startTime = System.nanoTime(); // Tiempo de inicio
+                            Msort(mergesort);// Llamada a la función
+                            endTime = System.nanoTime(); // Tiempo de finalización
+                            // Calcular el tiempo transcurrido en nanosegundos
+                            vectTiempo[i] = endTime - startTime;
+                            // Guardar los datos en archivo plano.
+                            creat.escribir(ord[k], "" + i, vectIndice[j], vectTiempo[i].toString());
+                            break;
+                        case 4:
+                        Vseleccion = Utilidad.llenado(vectIndice[j]);
+                        startTime = System.nanoTime(); // Tiempo de inicio
+                        seleccion();// Llamada a la función
+                        endTime = System.nanoTime(); // Tiempo de finalización
+                        // Calcular el tiempo transcurrido en nanosegundos
+                        vectTiempo[i] = endTime - startTime;
+                        // Guardar los datos en archivo plano.
+                        creat.escribir(ord[k], "" + i, vectIndice[j], vectTiempo[i].toString());
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                long prom = (vectTiempo[0] + vectTiempo[1] + vectTiempo[2]) / 3;
+                vectTiempo[3] = prom;
+                creat.escribir(ord[k], "Promedio", vectIndice[j], vectTiempo[3].toString());
+
             }
+        }
+    }
+
+    private void ordenamientoArrayVect(int[] vectIndice, Long[] vectTiempo) {
+        Creat creat = new Creat();
+        long endTime = 0;
+        long startTime = 0;
+        for (int j = 0; j < 3; j++) {
+
+            for (int i = 0; i < 3; i++) {
+                Vseleccion = Utilidad.llenado(vectIndice[j]);
+                startTime = System.nanoTime(); // Tiempo de inicio
+                seleccion();// Llamada a la función
+                endTime = System.nanoTime(); // Tiempo de finalización
+                // Calcular el tiempo transcurrido en nanosegundos
+                vectTiempo[i] = endTime - startTime;
+                // Guardar los datos en archivo plano.
+                creat.escribir("Vector Seleccion ", "" + i, vectIndice[j], vectTiempo[i].toString());
+
+            }
+            long prom = (vectTiempo[0] + vectTiempo[1] + vectTiempo[2]) / 3;
+            vectTiempo[3] = prom;
+            creat.escribir("Vector Seleccion ", "" + 3, vectIndice[j], vectTiempo[3].toString());
 
         }
 
     }
 
-    private void auxseleccion(int[] vectIndice, Long[] vectTiempo){
-        Creat creat = new Creat();
-        for (int i = 0; i < 4; i++) {
-            if (i < 3) {
-                burbuja = Utilidad.Llenado(vectIndice[i]); 
-                long startTime = System.nanoTime(); // Tiempo de inicio
-                seleccion(seleccion);// Llamada a la función
-                long endTime = System.nanoTime(); // Tiempo de finalización
-                // Calcular el tiempo transcurrido en nanosegundos
-               vectTiempo[i] = endTime - startTime;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
-            } else {
-            long prom = (vectTiempo[0]+vectTiempo[1]+vectTiempo[2])/3;
-                vectTiempo[i]=prom ;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
+    private void seleccion() {
+        int n = Vseleccion.length;
+        for (int i = 0; i < n - 1; i++) {
+            int minIdx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (Vseleccion[j] < Vseleccion[minIdx]) {
+                    minIdx = j;
+                }
             }
-
+            // Intercambia el elemento mínimo con el primer elemento de la sublista
+            int temp = Vseleccion[minIdx];
+            Vseleccion[minIdx] = Vseleccion[i];
+            Vseleccion[i] = temp;
         }
-
     }
-
-    @SuppressWarnings("unchecked")
-    private void auxQuitSort(int[] vectIndice, Long[] vectTiempo){
-        Creat creat = new Creat();
-        for (int i = 0; i < 4; i++) {
-            if (i < 3) {
-                burbuja = Utilidad.Llenado(vectIndice[i]); 
-                long startTime = System.nanoTime(); // Tiempo de inicio
-                sort(quitsort);// Llamada a la función
-                long endTime = System.nanoTime(); // Tiempo de finalización
-                // Calcular el tiempo transcurrido en nanosegundos
-               vectTiempo[i] = endTime - startTime;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
-            } else {
-            long prom = (vectTiempo[0]+vectTiempo[1]+vectTiempo[2])/3;
-                vectTiempo[i]=prom ;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
-            }
-
-        }
-
-    }
-
-    @SuppressWarnings("unchecked")
-    private void auxzMergeSort(int[] vectIndice, Long[] vectTiempo){
-        Creat creat = new Creat();
-        for (int i = 0; i < 4; i++) {
-            if (i < 3) {
-                burbuja = Utilidad.Llenado(vectIndice[i]); 
-                long startTime = System.nanoTime(); // Tiempo de inicio
-                Msort(mergesort);// Llamada a la función
-                long endTime = System.nanoTime(); // Tiempo de finalización
-                // Calcular el tiempo transcurrido en nanosegundos
-               vectTiempo[i] = endTime - startTime;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
-            } else {
-            long prom = (vectTiempo[0]+vectTiempo[1]+vectTiempo[2])/3;
-                vectTiempo[i]=prom ;
-                creat.escribir("1",""+i,vectTiempo[i].toString());
-            }
-
-        }
-
-    }
-
 
     // Resive la lista a ordemar por parametro
     public void burbuja(ArrayList<Integer> lista) {
@@ -164,10 +212,10 @@ public class Logica {
         }
     }
 
-     // Método público que inicia el proceso de ordenamiento
-     public void sort(ArrayList<Integer> lista) {
+    // Método público que inicia el proceso de ordenamiento
+    public void sort(ArrayList<Integer> lista) {
         if (lista == null || lista.size() < 2) {
-            return;  // No hay nada que ordenar
+            return; // No hay nada que ordenar
         }
         quickSort(lista, 0, lista.size() - 1);
     }

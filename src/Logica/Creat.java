@@ -9,9 +9,9 @@ public class Creat {
       // Ruta relativa al archivo
     private String Archivo = "archivo.txt";
     
-    public void escribir(String a, String b, String c){
+    public void escribir(String a, String b, long c, String d){
             // Contenido a escribir
-            String contenido = a+";"+b+";"+c;
+            String contenido = a+";"+b+";"+c+";"+d;
             
             // Abre el archivo en modo 'append' para añadir contenido al final
             try (FileWriter archivo = new FileWriter(Archivo, true)) {
