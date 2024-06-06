@@ -1,0 +1,36 @@
+Burbuja;Promedio;1000;16258066
+Burbuja;Promedio;10000;342777033
+Burbuja;Promedio;100000;56849081066
+Seleccion;Promedio;1000;13136766
+Seleccion;Promedio;10000;96920500
+Seleccion;Promedio;100000;12456013100
+Quitsort;Promedio;1000;1368666
+Quitsort;Promedio;10000;11046733
+Quitsort;Promedio;100000;46833166
+Mergesort;Promedio;1000;5335366
+Mergesort;Promedio;10000;34318733
+Mergesort;Promedio;100000;128317166
+Vector Seleccion ;Promedio;1000;7988066
+Vector Seleccion ;Promedio;10000;82515166
+Vector Seleccion ;Promedio;100000;6457769233
+
+
+
+
+
+
+Burbuja;Promedio;1000;27274600
+Burbuja;Promedio;10000;616194533
+Burbuja;Promedio;100000;52289464633
+Seleccion;Promedio;1000;16677733
+Seleccion;Promedio;10000;109320500
+Seleccion;Promedio;100000;10934302866
+Quitsort;Promedio;1000;884233
+Quitsort;Promedio;10000;3321266
+Quitsort;Promedio;100000;32778566
+Mergesort;Promedio;1000;3699333
+Mergesort;Promedio;10000;15165133
+Mergesort;Promedio;100000;89785233
+Vector Seleccion ;Promedio;1000;6809033
+Vector Seleccion ;Promedio;10000;110000300
+Vector Seleccion ;Promedio;100000;6053413300
